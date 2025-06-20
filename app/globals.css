@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%; /* Default dark background */
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* You can define specific dark overrides here if needed, but base is already dark */
+  }
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth; /* Added for smooth scrolling on anchor links */
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground; /* Fallback */
+    /* New Animated Gradient Background */
+    background: linear-gradient(
+      -45deg,
+      #080a18 /* Deepest Indigo/Night Blue */,
+      #0d1225 /* Dark Slate Blue */,
+      #101830 /* Richer Dark Blue */,
+      #0a101f /* Darkest Sapphire */
+    );
+    background-size: 400% 400%;
+    animation: gradientBG 40s ease infinite; /* Slower animation: 40s */
+    min-height: 100vh;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%; /* Added intermediate step for smoother transition */
+  }
+  50% {
+    background-position: 100% 100%; /* Added diagonal movement */
+  }
+  75% {
+    background-position: 0% 100%; /* Added another intermediate step */
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
